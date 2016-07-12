@@ -1,0 +1,39 @@
+.progress
+  @extend .block
+  -moz-appearance: none
+  -webkit-appearance: none
+  border: none
+  border-radius: 290486px
+  display: block
+  height: 12px
+  overflow: hidden
+  padding: 0
+  width: 100%
+  &::-webkit-progress-bar
+    background-color: $border
+  &::-webkit-progress-value
+    background-color: $text
+  &::-moz-progress-bar
+    background-color: $text
+  @each $color_name, $color in $colors
+    $color: map-get($color, 'base')
+    &.is-#{$color_name}
+      &::-webkit-progress-value
+        background-color: $color
+      &::-moz-progress-bar
+        background-color: $color
+  &.is-small
+    height: 8px
+  &.is-medium
+    height: 16px
+  &.is-large
+    height: 20px
+  &.is-striped
+    &::-webkit-progress-value
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)
+      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)
+      background-size: 30px 30px
+  &.is-active
+    &::-webkit-progress-value
+      -webkit-animation: progress-bar-stripes 2s linear infinite
+      animation: progress-bar-stripes 2s linear infinite

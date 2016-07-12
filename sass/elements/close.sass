@@ -1,0 +1,74 @@
+$close-size:                                    20px
+
+$close-alt-padding:                             2px
+$close-alt-background:                          #eee
+
+.close::-moz-focus-inner
+  border: 0
+  padding: 0
+
+.close
+  @extend .is-unselectable
+  -moz-appearance: none
+  -webkit-appearance: none
+  background-color: rgba($black, 0.4)
+  border: none
+  border-radius: 290486px
+  cursor: pointer
+  display: inline-block
+  height: 24px
+  position: relative
+  vertical-align: top
+  width: 24px
+  &:before,
+  &:after
+    background-color: $white
+    content: ""
+    display: block
+    height: 2px
+    left: 50%
+    margin-left: -25%
+    margin-top: -1px
+    position: absolute
+    top: 50%
+    width: 50%
+  &:before
+    transform: rotate(45deg)
+  &:after
+    transform: rotate(-45deg)
+  &:hover
+    background-color: rgba($black, 0.8)
+  &.is-small
+    height: 16px
+    width: 16px
+  &.is-medium
+    height: 32px
+    width: 32px
+  &.is-large
+    height: 40px
+    width: 40px
+
+.close:hover,
+.close:focus
+  opacity: 0.7
+  outline: none
+  color: inherit
+  text-decoration: none
+  cursor: pointer
+
+.close-alt 
+  padding: $close-alt-padding
+  border-radius: 50%
+  background: $close-alt-background
+  opacity: 1
+
+.close-alt:hover,
+.close-alt:focus
+  opacity: 1
+
+.close-alt:after 
+  opacity: 0.5
+
+.close-alt:hover:after,
+.close-alt:focus:after
+  opacity: 0.8

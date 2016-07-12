@@ -1,0 +1,126 @@
+$button-height: 30px
+$button-line-height: $button-height - 2
+$button-font-size: 13px
+
+$btnMini: ('id': 'mini', 'line-height': 20px - 2, 'font-size': round(($button-font-size * 0.78)))
+$btnSmall: ('id': 'small', 'line-height': 25px - 2, 'font-size': round(($button-font-size * 0.85)))
+$btnLarge: ('id': 'large', 'line-height': 40px - 2, 'font-size': round(($button-font-size * 1.14)))
+$btnHuge: ('id': 'huge', 'line-height': 60px - 2, 'font-size': round(($button-font-size * 1.35)))
+
+$btnSizes: $btnMini $btnSmall $btnLarge $btnHuge
+
+
+.button::-moz-focus-inner
+  border: 0
+  padding: 0
+
+.button
+  -webkit-appearance: none
+  outline: none
+  margin: 0
+  border: none
+  overflow: visible
+  font: inherit
+  color: #444
+  text-transform: none
+  display: inline-block
+  box-sizing: border-box
+  padding: 0 12px
+  background: #eee
+  vertical-align: middle
+  line-height: $button-line-height
+  min-height: $button-line-height
+  font-size: $button-font-size
+  text-decoration: none
+  text-align: center
+  border: 1px solid rgba(0,0,0,0.2)
+  border-bottom-color: rgba(0,0,0,0.3)
+  background-origin: border-box
+  background-image: -webkit-linear-gradient(top, #fff, #eee)
+  background-image: linear-gradient(to bottom, #fff, #eee)
+  border-radius: 4px
+  text-shadow: 0 1px 0 #fff
+  @each $color_name, $color in $colors
+    $color: map-get($color, 'base')
+    $gradient-top-left: darken(saturate(adjust-hue($color, -10deg), 10%), 10%)
+    $gradient-bottom-right: lighten(saturate(adjust-hue($color, 10deg), 5%), 5%)
+    $color-invert: findColorInvert($color)
+    &.is-#{$color_name}
+      background-image: -webkit-linear-gradient(top, $color, $color)
+      background-image: linear-gradient(to bottom, $color, $color)
+      color: $color-invert
+      text-shadow: none
+      &:hover, &:focus
+        background-image: -webkit-linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%)
+        background-image: linear-gradient(141deg, $gradient-top-left 0%, $color 71%, $gradient-bottom-right 100%)
+        border-color: rgba(0,0,0,0.2)
+        color: $color-invert
+  @each $btnSize in $btnSizes
+    &.is-#{map-get($btnSize, 'id')}
+      line-height: map-get($btnSize, 'line-height')
+      min-height: map-get($btnSize, 'line-height')
+      font-size: map-get($btnSize, 'font-size')
+
+.button:not(:disabled) 
+  cursor: pointer
+
+.button:hover,
+.button:focus
+  background-color: #fafafa
+  color: #666
+  background-image: none
+  border-color: rgba(0,0,0,0.2)
+
+.button:active,
+.button.is-active
+  background-image: none
+
+.button:disabled
+  background-image: none
+  background-color: #fafafa
+  color: #999
+  box-shadow: none
+  cursor: default
+
+.button-link,
+.button-link:hover,
+.button-link:focus,
+.button-link:active,
+.button-link.is-active,
+.button-link:disabled
+  border-color: transparent
+  background: none
+
+.button-link 
+  color: #07D
+
+.button-link:hover,
+.button-link:focus,
+.button-link:active,
+.button-link.is-active
+  color: #059
+  text-decoration: underline
+
+.button-link:disabled 
+  color: #999
+
+.button-link:focus 
+  outline: 1px dotted
+
+.button-group
+  display: inline-block
+  vertical-align: middle
+  position: relative
+  font-size: 0.001px
+  white-space: nowrap
+
+.button-group > * 
+  display: inline-block
+
+.button-group .button 
+  vertical-align: top
+
+.button-dropdown
+  display: inline-block
+  vertical-align: middle
+  position: relative

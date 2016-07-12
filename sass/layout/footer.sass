@@ -1,0 +1,31 @@
+.footer
+  padding: 20px
+  border-top: 1px solid rgba($black, 0.1)
+  background: $white
+  a
+    &,
+    &:visited
+      color: $text
+      &:hover
+        color: $text-strong
+      &:not(.icon)
+        border-bottom: 1px solid $border
+        &:hover
+          border-bottom-color: $link
+  @each $color_name, $color in $colors
+    $color: map-get($color, 'base')
+    $color-invert: findColorInvert($color)
+    &.is-#{$color_name}
+      background-color: $color
+      color: $color-invert
+      a
+        color: $color-invert !important
+        &,
+        &:visited
+          color: $color-invert
+          &:hover
+            color: $color-invert
+          &:not(.icon)
+            border-bottom: none !important
+            &:hover
+              border-bottom-color: $color-invert
