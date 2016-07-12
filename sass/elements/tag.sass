@@ -1,0 +1,45 @@
+.tag
+  align-items: center
+  background-color: $background
+  border-radius: 290486px
+  color: $text
+  display: inline-flex
+  font-size: 12px
+  height: 24px
+  justify-content: center
+  line-height: 16px
+  padding-left: 10px
+  padding-right: 10px
+  vertical-align: top
+  white-space: nowrap
+  .close
+    margin-left: 4px
+    margin-right: -6px
+  &:not(.is-large)
+    .close
+      @extend .close.is-small
+  @each $color_name, $color in $colors
+    $color: map-get($color, 'base')
+    $color-invert: findColorInvert($color)
+    &.is-#{$color-name}
+      background-color: $color
+      color: $color-invert
+  &.is-small
+    font-size: $size-small
+    height: 20px
+    padding-left: 8px
+    padding-right: 8px
+  &.is-medium
+    font-size: $size-normal
+    height: 32px
+    padding-left: 14px
+    padding-right: 14px
+  &.is-large
+    font-size: $size-5
+    height: 40px
+    line-height: 24px
+    padding-left: 18px
+    padding-right: 18px
+    .close
+      margin-left: 4px
+      margin-right: -8px
