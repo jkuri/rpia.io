@@ -1,0 +1,21 @@
+{
+  "name": "rpia",
+  "description": "A modern CSS front-end framework for developing powerful web interfaces.",
+  "main": "rpia.sass",
+  "authors": [
+    "Jan Kuri <jkuri88@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "flexbox",
+    "responsive",
+    "framework"
+  ],
+  "homepage": "https://rpia.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkuri/rpia.io"
+  }
+}
