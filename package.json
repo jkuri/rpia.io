@@ -1,6 +1,6 @@
 {
   "name": "rpia",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A modern CSS front-end framework for developing powerful web interfaces.",
   "main": "rpia.sass",
   "scripts": {
